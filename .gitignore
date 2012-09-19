@@ -1,4 +1,73 @@
+Procfile.local
+
+# Celery
+celerybeat.pid
+celeryev.pid
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+#Translations
+#*.mo
+
+#Mr Developer
+.mr.developer.cfg
+
+*.sqlite3
+*.db
+*.rdb
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
 *.log
-*.pot
-*.pyc
-local_settings.py
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# NPM packages folder.
+node_modules/
+
+# Brunch folder for temporary files.
+tmp/
+
+# Ignore compiled files (js, css, etc.)
+# core/*.js
+# *.css
