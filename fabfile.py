@@ -1,6 +1,6 @@
 from fabric.api import *
 
-current_git_branch = local('git symbolic-ref HEAD', capture=True).split('/')[-1]
+# current_git_branch = local('git symbolic-ref HEAD', capture=True).split('/')[-1]
 
 
 # === Environments ===
@@ -37,9 +37,9 @@ def collectstatic():
     # brunchbuild()
     local('./manage.py collectstatic --noinput -i app -i config.coffee \
             -i node_modules -i package.json --settings={settings}'.format(**env))
-    if env.env != 'development':
-        commit_id = local('git rev-parse HEAD', capture=True)
-        _config_set(key='HEAD_COMMIT_ID', value=commit_id)
+    # if env.env != 'development':
+    #     commit_id = local('git rev-parse HEAD', capture=True)
+    #     _config_set(key='HEAD_COMMIT_ID', value=commit_id)
 
 
 def brunchwatch(app_name='core'):
