@@ -35,7 +35,7 @@ def deploy():
 # === Static assets stuff ===
 def collectstatic():
     # brunchbuild()
-    local('./manage.py collectstatic --noinput -i app -i config.coffee \
+    local('python manage.py collectstatic --noinput -i app -i config.coffee \
             -i node_modules -i package.json --settings={settings}'.format(**env))
     # if env.env != 'development':
     #     commit_id = local('git rev-parse HEAD', capture=True)
@@ -57,8 +57,8 @@ def resetdb():
     if env.env == 'development':
         with settings(warn_only=True):
             local('rm dev.sqlite3')
-        local('./manage.py syncdb --noinput --settings={settings}'.format(**env))
-        local('./manage.py migrate --settings={settings}'.format(**env))
+        local('python manage.py syncdb --noinput --settings={settings}'.format(**env))
+        local('python manage.py migrate --settings={settings}'.format(**env))
     else:
 
         if raw_input('\nDo you really want to RESET DATABASE of {heroku_app}? YES or [NO]: '.format(**env)) == 'YES':
@@ -69,12 +69,12 @@ def resetdb():
 
 
 def schemamigration(app_names='core'):
-    local('./manage.py schemamigration {app_names} --auto --settings={settings}'.format(app_names, **env))
+    local('python manage.py schemamigration {app_names} --auto --settings={settings}'.format(app_names, **env))
 
 
 def migrate():
     if env.env == 'development':
-        local('./manage.py migrate --settings={settings}'.format(**env))
+        local('python manage.py migrate --settings={settings}'.format(**env))
     else:
 
         if raw_input('\nDo you really want to MIGRATE DATABASE of {heroku_app}? YES or [NO]: '.format(**env)) == 'YES':
