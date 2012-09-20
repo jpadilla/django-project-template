@@ -57,7 +57,7 @@ def resetdb():
     if env.env == 'development':
         with settings(warn_only=True):
             local('rm dev.sqlite3')
-        local('python manage.py syncdb --noinput --settings={settings}'.format(**env))
+        local('python manage.py syncdb --settings={settings}'.format(**env))
         local('python manage.py migrate --settings={settings}'.format(**env))
     else:
 
