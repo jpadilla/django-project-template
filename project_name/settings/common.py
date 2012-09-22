@@ -36,6 +36,7 @@ INSTALLED_APPS = (
 
     'south',
     'gunicorn',
+    'django_extensions',
 
     # '{{ project_name }}.core'
 )
