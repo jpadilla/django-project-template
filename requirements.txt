@@ -3,3 +3,5 @@ South>=0.7.6
 dj-database-url>=0.2.1
 Fabric>=1.4.3
 gunicorn>=0.14.6
+django-extensions>=0.9
+Werkzeug>=0.8.3
