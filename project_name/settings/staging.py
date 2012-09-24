@@ -1,3 +1,5 @@
+import dj_database_url
+
 from {{ project_name }}.settings.common import *
 
 #==============================================================================
