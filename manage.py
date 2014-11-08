@@ -2,8 +2,12 @@
 import os
 import sys
 
-if __name__ == "__main__":
+import dotenv
 
+
+dotenv.read_dotenv()
+
+if __name__ == "__main__":
     ENVIRONMENT = os.getenv('ENVIRONMENT')
 
     if ENVIRONMENT == 'STAGING':
@@ -13,9 +17,9 @@ if __name__ == "__main__":
     else:
         settings = 'development'
 
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-        "{{ project_name }}.settings.{settings}".format(settings=settings))
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.settings')
+    os.environ.setdefault('DJANGO_CONFIGURATION', settings.title())
 
-    from django.core.management import execute_from_command_line
+    from configurations.management import execute_from_command_line
 
     execute_from_command_line(sys.argv)
