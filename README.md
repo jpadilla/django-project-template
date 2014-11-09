@@ -5,8 +5,8 @@ At [Blimp](http://getblimp.com/), we love working with Django. For every project
 
 #How to install
 
-    django-admin.py startproject --template=https://github.com/jpadilla/django-project-template/zipball/master --extension=py,md,dev project_name
-    
+    django-admin.py startproject --template=https://github.com/jpadilla/django-project-template/archive/1.4.zip --extension=py,md,dev project_name
+
 #Apps included
 	Fabric
 	South
@@ -14,11 +14,11 @@ At [Blimp](http://getblimp.com/), we love working with Django. For every project
 	django-extensions
 	gunicorn
 	psycopg2
-	
+
 #Settings
 The manage.py script checks for an environment variable called `ENVIRONMENT` with values of STAGING or PRODUCTION. If none of those are found, development environment is assumed. We use this to automatically set `DJANGO_SETTINGS_MODULE`. This makes using manage.py easier because you dont have to keep remembering of writing `--setting=project.settings.development`. We converted settings.py into a module with settings splitted into three different files, `development.py`, `staging.py`, `production.py`. All of those import common settings from `common.py` and override them or set new ones depending on the environment.
 
-    
+
 #Fabric Script
 
 ##Environments
@@ -31,7 +31,7 @@ The manage.py script checks for an environment variable called `ENVIRONMENT` wit
 	fab production collectstatic
 	fab brunchwatch
 	fab brunchbuild
-	
+
 ##DB
 	fab staging resetdb
 	fab schemamigration
@@ -44,4 +44,4 @@ The manage.py script checks for an environment variable called `ENVIRONMENT` wit
 	fab production tail
 	fab production shell
 	fab production config
-	
+
