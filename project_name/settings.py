@@ -19,6 +19,13 @@ class Common(Configuration):
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = values.SecretValue()
 
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = values.BooleanValue(False)
+
+    TEMPLATE_DEBUG = values.BooleanValue(DEBUG)
+
+    ALLOWED_HOSTS = []
+
     # Application definition
     INSTALLED_APPS = (
         'django.contrib.admin',
@@ -46,12 +53,11 @@ class Common(Configuration):
 
     WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
-
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
     DATABASES = values.DatabaseURLValue(
-        'postgres://{}@localhost/{{ project_name }}'.format(
-            os.getenv('USER')), environ=True)
+        'postgres://{}@localhost/{{ project_name }}'.format(os.getenv('USER'))
+    )
 
     # Internationalization
     # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
@@ -64,7 +70,6 @@ class Common(Configuration):
     USE_L10N = True
 
     USE_TZ = True
-
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
@@ -95,14 +100,16 @@ class Staging(Common):
     )
 
     # django-secure
-    SESSION_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_FRAME_DENY = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = values.BooleanValue(True)
+    SECURE_SSL_REDIRECT = values.BooleanValue(True)
+    SECURE_HSTS_SECONDS = values.IntegerValue(31536000)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = values.BooleanValue(True)
+    SECURE_FRAME_DENY = values.BooleanValue(True)
+    SECURE_CONTENT_TYPE_NOSNIFF = values.BooleanValue(True)
+    SECURE_BROWSER_XSS_FILTER = values.BooleanValue(True)
+    SECURE_PROXY_SSL_HEADER = values.TupleValue(
+        ('HTTP_X_FORWARDED_PROTO', 'https')
+    )
 
 
 class Production(Staging):
