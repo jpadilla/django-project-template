@@ -86,7 +86,7 @@ class Development(Common):
 
     ALLOWED_HOSTS = []
 
-    INSTALLED_APPS = Common.INSTALLED_APPS += (
+    INSTALLED_APPS = Common.INSTALLED_APPS + (
         'debug_toolbar',
     )
 
@@ -95,7 +95,7 @@ class Staging(Common):
     """
     The in-staging settings.
     """
-    INSTALLED_APPS = Common.INSTALLED_APPS += (
+    INSTALLED_APPS = Common.INSTALLED_APPS + (
         'djangosecure',
     )
 
@@ -117,4 +117,3 @@ class Production(Staging):
     The in-production settings.
     """
     pass
-
