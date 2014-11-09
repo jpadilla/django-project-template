@@ -1,4 +1,4 @@
-# django-project-template
+# Django 1.7+ project template
 
 This is a simple Django 1.7+ project template with my preferred setup. Most Django project templates make way too many asumptions or are just way too complicated. I try to make the least amount of asumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
 
@@ -7,11 +7,11 @@ This is a simple Django 1.7+ project template with my preferred setup. Most Djan
 ## Features
 
 - Django 1.7.1
-- Development, Staging and Production settings with django-configurations.
-- Get value insight and debug information while on Development with django-debug-toolbar.
-- Load environment variables from `.env` with django-dotenv.
-- Collection of custom extensions with django-extensions.
-- HTTPS and other security related settings on Staging and Production with django-secure.
+- Development, Staging and Production settings with [django-configurations](http://django-configurations.readthedocs.org/).
+- Get value insight and debug information while on Development with [django-debug-toolbar](http://django-debug-toolbar.readthedocs.org/en/1.2.2/).
+- Load environment variables from `.env` with [django-dotenv](https://github.com/jacobian-archive/django-dotenv).
+- Collection of custom extensions with [django-extensions](http://django-extensions.readthedocs.org/).
+- HTTPS and other security related settings on Staging and Production with [django-secure](http://django-secure.readthedocs.org/).
 - Procfile for running gunicorn with New Relic's Python agent.
 - PostgreSQL database support with psycopg2.
 
@@ -56,7 +56,7 @@ It is possible to deploy to Heroku or to your own server.
 ```bash
 $ heroku create
 $ heroku addons:add heroku-postgresql:dev
-heroku addons:add newrelic
+$ heroku addons:add newrelic
 $ heroku pg:promote DATABASE_URL
 $ heroku config:set ENVIRONMENT=PRODUCTION
 $ heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
