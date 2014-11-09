@@ -9,7 +9,6 @@ django-secure==1.0.1
 gunicorn==19.1.1
 newrelic==2.36.0.30
 psycopg2==2.5.4
-raven==5.1.1
 six==1.8.0
 sqlparse==0.1.13
 wsgiref==0.1.2
