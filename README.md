@@ -9,7 +9,7 @@ This is a simple Django 1.7+ project template with my preferred setup. Most Djan
 - Django 1.7.1
 - Development, Staging and Production settings with [django-configurations](http://django-configurations.readthedocs.org/).
 - Get value insight and debug information while on Development with [django-debug-toolbar](http://django-debug-toolbar.readthedocs.org/en/1.2.2/).
-- Load environment variables from `.env` with [django-dotenv](https://github.com/jacobian-archive/django-dotenv).
+- Load environment variables from `.env` with [django-dotenv](https://github.com/jpadilla/django-dotenv).
 - Collection of custom extensions with [django-extensions](http://django-extensions.readthedocs.org/).
 - HTTPS and other security related settings on Staging and Production with [django-secure](http://django-secure.readthedocs.org/).
 - Procfile for running gunicorn with New Relic's Python agent.
