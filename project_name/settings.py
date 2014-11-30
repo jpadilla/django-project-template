@@ -55,9 +55,7 @@ class Common(Configuration):
 
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue(
-        'postgres://{}@localhost/{{ project_name }}'.format(os.getenv('USER'))
-    )
+    DATABASES = values.DatabaseURLValue('sqlite://db.sqlite3')
 
     # Internationalization
     # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
