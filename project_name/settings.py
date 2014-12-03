@@ -55,7 +55,9 @@ class Common(Configuration):
 
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('sqlite://db.sqlite3')
+    DATABASES = values.DatabaseURLValue(
+        'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+    )
 
     # Internationalization
     # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
