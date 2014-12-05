@@ -26,6 +26,6 @@ else:
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION', settings.title())
 
-from django.core.wsgi import get_wsgi_application
+from configurations.wsgi import get_wsgi_application
 
 application = get_wsgi_application()
