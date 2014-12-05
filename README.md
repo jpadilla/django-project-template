@@ -59,5 +59,5 @@ $ heroku addons:add heroku-postgresql:dev
 $ heroku addons:add newrelic
 $ heroku pg:promote DATABASE_URL
 $ heroku config:set ENVIRONMENT=PRODUCTION
-$ heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
+$ heroku config:set DJANGO_SECRET_KEY=`./manage.py generate_secret_key`
 ```
