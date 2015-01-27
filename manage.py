@@ -7,6 +7,7 @@ import dotenv
 
 dotenv.read_dotenv()
 
+
 if __name__ == "__main__":
     ENVIRONMENT = os.getenv('ENVIRONMENT')
 

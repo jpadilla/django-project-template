@@ -11,8 +11,9 @@ import dotenv
 try:
     dotenv.read_dotenv(
         os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-except:
-    pass
+except Exception as e:
+    print(e)
+
 
 ENVIRONMENT = os.getenv('ENVIRONMENT')
 
