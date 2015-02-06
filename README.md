@@ -1,5 +1,7 @@
 # Django 1.7+ project template
 
+[![Dependency Status](https://gemnasium.com/jpadilla/django-project-template.svg)](https://gemnasium.com/jpadilla/django-project-template)
+
 This is a simple Django 1.7+ project template with my preferred setup. Most Django project templates make way too many asumptions or are just way too complicated. I try to make the least amount of asumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
 
 **Note**: If you're looking for the previous Django 1.4+ project template layout check out the [1.4](https://github.com/jpadilla/django-project-template/tree/1.4) branch.
