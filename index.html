@@ -45,7 +45,11 @@
 <h2>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install</h2>
 
-<div class="highlight highlight-source-shell"><pre>$ django-admin.py startproject --template=https://github.com/jpadilla/django-project-template/archive/master.zip --name=Procfile --extension=py,md,env project_name
+<div class="highlight highlight-source-shell"><pre>$ django-admin.py startproject \
+  --template=https://github.com/jpadilla/django-project-template/archive/master.zip \
+  --name=Procfile \
+  --extension=py,md,env \
+  project_name
 $ mv example.env .env
 $ pip install -r requirements.txt</pre></div>
 
