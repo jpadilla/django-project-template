@@ -26,7 +26,7 @@ $ django-admin.py startproject \
   --extension=py,md,env \
   project_name
 $ mv example.env .env
-$ pip install -r requirements.txt
+$ pip install -r requirements.txt -r requirements/dev.txt
 ```
 
 ## Environment variables
