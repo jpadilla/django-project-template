@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Django Project Template by jpadilla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Django Project Template</h1>
+      <h2 class="project-tagline">Project template layout for Django 1.9+</h2>
+      <a href="https://github.com/jpadilla/django-project-template" class="btn">View on GitHub</a>
+      <a href="https://github.com/jpadilla/django-project-template/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jpadilla/django-project-template/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="django-19-project-template" class="anchor" href="#django-19-project-template" aria-hidden="true"><span class="octicon octicon-link"></span></a>Django 1.9+ project template</h1>
+
+<p><a href="https://gemnasium.com/jpadilla/django-project-template"><img src="https://gemnasium.com/jpadilla/django-project-template.svg" alt="Dependency Status"></a></p>
+
+<p>This is a simple Django 1.9+ project template with my preferred setup. Most Django project templates make way too many assumptions or are just way too complicated. I try to make the least amount of assumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.</p>
+
+<p><strong>Note</strong>: If you're looking for the previous Django 1.7+ project template layout check out the <a href="https://github.com/jpadilla/django-project-template/tree/1.7">1.7</a> branch.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Django 1.9</li>
+<li>Development, Staging and Production settings with <a href="https://django-configurations.readthedocs.org">django-configurations</a>.</li>
+<li>Get value insight and debug information while on Development with <a href="https://django-debug-toolbar.readthedocs.org">django-debug-toolbar</a>.</li>
+<li>Load environment variables from <code>.env</code> with <a href="https://github.com/jpadilla/django-dotenv">django-dotenv</a>.</li>
+<li>Collection of custom extensions with <a href="http://django-extensions.readthedocs.org">django-extensions</a>.</li>
+<li>HTTPS and other security related settings on Staging and Production.</li>
+<li>Procfile for running gunicorn with New Relic's Python agent.</li>
+<li>PostgreSQL database support with psycopg2.</li>
+</ul>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install</h2>
+
+<div class="highlight highlight-source-shell"><pre>$ django-admin.py startproject --template=https://github.com/jpadilla/django-project-template/archive/master.zip --name=Procfile --extension=py,md,env project_name
+$ mv example.env .env
+$ pip install -r requirements.txt</pre></div>
+
+<h2>
+<a id="environment-variables" class="anchor" href="#environment-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment variables</h2>
+
+<p>These are common between environments. The <code>ENVIRONMENT</code> variable loads the correct settings, possible values are: <code>DEVELOPMENT</code>, <code>STAGING</code>, <code>PRODUCTION</code>.</p>
+
+<pre><code>ENVIRONMENT='DEVELOPMENT'
+DJANGO_SECRET_KEY='dont-tell-eve'
+DJANGO_DEBUG='yes'
+</code></pre>
+
+<p>These settings(and their default values) are only used on staging and production environments.</p>
+
+<pre><code>DJANGO_SESSION_COOKIE_SECURE='yes'
+DJANGO_SECURE_BROWSER_XSS_FILTER='yes'
+DJANGO_SECURE_CONTENT_TYPE_NOSNIFF='yes'
+DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS='yes'
+DJANGO_SECURE_HSTS_SECONDS=31536000
+DJANGO_SECURE_REDIRECT_EXEMPT=''
+DJANGO_SECURE_SSL_HOST=''
+DJANGO_SECURE_SSL_REDIRECT='yes'
+DJANGO_SECURE_PROXY_SSL_HEADER='HTTP_X_FORWARDED_PROTO,https'
+</code></pre>
+
+<h2>
+<a id="deployment" class="anchor" href="#deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deployment</h2>
+
+<p>It is possible to deploy to Heroku or to your own server.</p>
+
+<h3>
+<a id="heroku" class="anchor" href="#heroku" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku</h3>
+
+<div class="highlight highlight-source-shell"><pre>$ heroku create
+$ heroku addons:add heroku-postgresql:dev
+$ heroku addons:add newrelic
+$ heroku pg:promote DATABASE_URL
+$ heroku config:<span class="pl-c1">set</span> ENVIRONMENT=PRODUCTION
+$ heroku config:<span class="pl-c1">set</span> DJANGO_SECRET_KEY=<span class="pl-s"><span class="pl-pds">`</span>./manage.py generate_secret_key<span class="pl-pds">`</span></span></pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jpadilla/django-project-template">Django Project Template</a> is maintained by <a href="https://github.com/jpadilla">jpadilla</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
