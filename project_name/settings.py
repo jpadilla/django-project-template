@@ -115,6 +115,10 @@ class Development(Common):
 
     ALLOWED_HOSTS = []
 
+    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + [
+        'debug_toolbar.middleware.DebugToolbarMiddleware'
+    ]
+
 
 class Staging(Common):
     """
