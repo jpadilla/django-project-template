@@ -37,7 +37,7 @@ class Common(Configuration):
         'debug_toolbar',
     ]
 
-    MIDDLEWARE_CLASSES = [
+    MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -115,7 +115,11 @@ class Development(Common):
 
     ALLOWED_HOSTS = []
 
-    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + [
+    INTERNAL_IPS = [
+        '127.0.0.1'
+    ]
+
+    MIDDLEWARE = Common.MIDDLEWARE + [
         'debug_toolbar.middleware.DebugToolbarMiddleware'
     ]
 
