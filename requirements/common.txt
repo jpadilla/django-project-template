@@ -1,7 +1,7 @@
-dj-database-url==0.4.1
+dj-database-url==0.4.2
 django-configurations==2.0.0
 django-debug-toolbar==1.6.0
 django-dotenv==1.4.1
-django-extensions==1.7.5
-Django==1.10.3
-psycopg2==2.6.2
+django-extensions==1.7.7
+Django==1.10.6
+psycopg2==2.7
