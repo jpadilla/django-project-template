@@ -1,3 +1,3 @@
 -r common.txt
-gunicorn==19.7.0
-newrelic==2.80.1.61
+gunicorn==19.7.1
+newrelic==2.86.0.65
