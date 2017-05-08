@@ -1,14 +1,14 @@
-# Django 1.10+ project template
+# Django 1.11+ project template
 
 [![Dependency Status](https://gemnasium.com/jpadilla/django-project-template.svg)](https://gemnasium.com/jpadilla/django-project-template)
 
-This is a simple Django 1.10+ project template with my preferred setup. Most Django project templates make way too many assumptions or are just way too complicated. I try to make the least amount of assumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
+This is a simple Django 1.11+ project template with my preferred setup. Most Django project templates make way too many assumptions or are just way too complicated. I try to make the least amount of assumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
 
 **Note**: If you're looking for the previous Django 1.7+ project template layout check out the [1.7](https://github.com/jpadilla/django-project-template/tree/1.7) branch.
 
 ## Features
 
-- Django 1.10
+- Django 1.11
 - Development, Staging and Production settings with [django-configurations](https://django-configurations.readthedocs.org).
 - Get value insight and debug information while on Development with [django-debug-toolbar](https://django-debug-toolbar.readthedocs.org).
 - Load environment variables from `.env` with [django-dotenv](https://github.com/jpadilla/django-dotenv).
