@@ -35,6 +35,8 @@ class Common(Configuration):
 
         'django_extensions',
         'debug_toolbar',
+
+        '{{ project_name }}.users',
     ]
 
     MIDDLEWARE = [
@@ -105,6 +107,8 @@ class Common(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
     STATIC_URL = '/static/'
+
+    AUTH_USER_MODEL = 'users.User'
 
 
 class Development(Common):
