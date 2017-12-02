@@ -1,14 +1,13 @@
-# Django 1.11+ project template
+# Django 2.0+ project template
 
 [![Dependency Status](https://gemnasium.com/jpadilla/django-project-template.svg)](https://gemnasium.com/jpadilla/django-project-template)
 
-This is a simple Django 1.11+ project template with my preferred setup. Most Django project templates make way too many assumptions or are just way too complicated. I try to make the least amount of assumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
-
-**Note**: If you're looking for the previous Django 1.7+ project template layout check out the [1.7](https://github.com/jpadilla/django-project-template/tree/1.7) branch.
+This is a simple Django 2.0+ project template with my preferred setup. Most Django project templates make way too many assumptions or are just way too complicated. I try to make the least amount of assumptions possible while still trying provide a useful setup. Most of my projects are deployed to Heroku, so this is optimized for that but is not necessary.
 
 ## Features
 
-- Django 1.11
+- Django 2.0+
+- Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the officially recommended Python packaging tool from Python.org.
 - Development, Staging and Production settings with [django-configurations](https://django-configurations.readthedocs.org).
 - Get value insight and debug information while on Development with [django-debug-toolbar](https://django-debug-toolbar.readthedocs.org).
 - Load environment variables from `.env` with [django-dotenv](https://github.com/jpadilla/django-dotenv).
@@ -26,7 +25,7 @@ $ django-admin.py startproject \
   --extension=py,md,env \
   project_name
 $ mv example.env .env
-$ pip install -r requirements.txt -r requirements/dev.txt
+$ pipenv install --dev
 ```
 
 ## Environment variables
@@ -72,7 +71,7 @@ $ heroku config:set DJANGO_SECRET_KEY=`./manage.py generate_secret_key`
 
 The MIT License (MIT)
 
-Copyright (c) 2012-2016 José Padilla
+Copyright (c) 2012-2017 José Padilla
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
