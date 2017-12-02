@@ -1,0 +1,28 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+werkzeug = "==0.12.2"
+
+
+[packages]
+
+dj-database-url = "==0.4.2"
+django-configurations = "==2.0.0"
+django-debug-toolbar = "==1.9.1"
+django-dotenv = "==1.4.1"
+django-extensions = "==1.9.7"
+django = "==2.0"
+"psycopg2" = "==2.7.3.2"
+gunicorn = "==19.7.1"
+newrelic = "==2.98.0.81"
+
+
+[requires]
+
+python_version = "3.6"

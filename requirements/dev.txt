@@ -1,2 +1,0 @@
--r common.txt
-Werkzeug==0.12.2
