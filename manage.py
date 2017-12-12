@@ -18,7 +18,7 @@ if __name__ == '__main__':
     else:
         settings = 'development'
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.setting')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '{{ project_name }}.settings')
     os.environ.setdefault('DJANGO_CONFIGURATION', settings.title())
 
     try:
