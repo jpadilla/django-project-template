@@ -10,7 +10,6 @@ This is a simple Django 2.0+ project template with my preferred setup. Most Djan
 - Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the officially recommended Python packaging tool from Python.org.
 - Development, Staging and Production settings with [django-configurations](https://django-configurations.readthedocs.org).
 - Get value insight and debug information while on Development with [django-debug-toolbar](https://django-debug-toolbar.readthedocs.org).
-- Load environment variables from `.env` with [django-dotenv](https://github.com/jpadilla/django-dotenv).
 - Collection of custom extensions with [django-extensions](http://django-extensions.readthedocs.org).
 - HTTPS and other security related settings on Staging and Production.
 - Procfile for running gunicorn with New Relic's Python agent.
