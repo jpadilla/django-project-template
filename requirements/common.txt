@@ -1,6 +1,6 @@
 Django==2.1.2
 dj-database-url==0.4.2
-django-configurations==2.0.0
+django-configurations==2.1
 django-debug-toolbar==1.7
 django-dotenv==1.4.1
 django-extensions==1.7.8
