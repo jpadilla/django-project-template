@@ -58,7 +58,6 @@ It is possible to deploy to Heroku or to your own server.
 ```bash
 $ heroku create
 $ heroku addons:add heroku-postgresql:hobby-dev
-$ heroku addons:add newrelic
 $ heroku pg:promote DATABASE_URL
 $ heroku config:set ENVIRONMENT=PRODUCTION
 $ heroku config:set DJANGO_SECRET_KEY=`./manage.py generate_secret_key`
