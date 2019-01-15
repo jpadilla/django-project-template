@@ -16,13 +16,19 @@ This is a simple Django 2.0+ project template with my preferred setup. Most Djan
 ## How to install
 
 ```bash
-$ django-admin.py startproject \
+mkdir project_name
+cd project_name
+pipenv --python <version>
+pipenv install django
+pipenv run django-admin.py startproject \
   --template=https://github.com/jpadilla/django-project-template/archive/master.zip \
   --name=Procfile \
   --extension=py,md,env \
-  project_name
-$ mv example.env .env
-$ pipenv install --dev
+  project_name .
+pipenv install -r requirements/common.txt
+pipenv install -r requirements/dev.txt --dev
+rm -rf requirements
+cp example.env .env
 ```
 
 ## Environment variables
