@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "verbose": {
+      "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+      "style": "{"
+    },
+    "simple": {
+      "format": "{levelname} {message}",
+      "style": "{"
+    }
+  },
+  "filters": {
+    "require_debug_true": {
+      "()": "django.utils.log.RequireDebugTrue"
+    }
+  },
+  "handlers": {
+    "console": {
+      "level": "DEBUG",
+      "filters": [
+        "require_debug_true"
+      ],
+      "class": "logging.StreamHandler",
+      "formatter": "verbose"
+    },
+    "mail_admins": {
+      "level": "ERROR",
+      "class": "django.utils.log.AdminEmailHandler"
+    }
+  },
+  "loggers": {
+    "django": {
+      "handlers": [
+        "console"
+      ],
+      "propagate": true,
+      "level": "INFO"
+    },
+    "django.request": {
+      "handlers": [
+        "mail_admins"
+      ],
+      "level": "ERROR",
+      "propagate": true
+    },
+    "{{project_name}}": {
+      "handlers": [
+        "console"
+      ],
+      "level": "DEBUG",
+      "propagate": true
+    }
+  }
+}

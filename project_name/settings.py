@@ -8,8 +8,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 import os
+import json
 
 from configurations import Configuration, values
+
+
+def load_logging(path):
+
+    if os.path.exists(path):
+        with open(path, 'rt') as f:
+            return json.load(f)
+    return {}
 
 
 class Common(Configuration):
@@ -140,6 +149,8 @@ class Common(Configuration):
     )
 
     AUTH_USER_MODEL = 'membership.User'
+
+    LOGGING = load_logging('logging.json')
 
 
 class Development(Common):

@@ -29,6 +29,7 @@ pipenv install -r requirements/common.txt
 pipenv install -r requirements/dev.txt --dev
 rm -rf requirements
 cp example.env .env
+cp example.logging.json logging.json
 ```
 
 ## Environment variables
