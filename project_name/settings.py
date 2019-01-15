@@ -13,8 +13,15 @@ from configurations import Configuration, values
 
 
 class Common(Configuration):
+    # This is the project's root directory where the manage.py file exists.
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    BASE_DIR = os.path.normpath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+    # This is the directory under which all the assets will be stored
+    ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
+
+    # Directory for uploaded media files and collected static files
+    CONTENTS_DIR = os.path.join(BASE_DIR, 'contents')
 
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = values.SecretValue()
@@ -56,7 +63,7 @@ class Common(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [],
+            'DIRS': [os.path.join(ASSETS_DIR, 'templates')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -70,6 +77,8 @@ class Common(Configuration):
     ]
 
     WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+
+    APPEND_SLASH = values.BooleanValue(False)
 
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
@@ -96,7 +105,7 @@ class Common(Configuration):
 
     # Internationalization
     # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
-    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = values.Value('en-us')
 
     TIME_ZONE = 'UTC'
 
@@ -108,9 +117,27 @@ class Common(Configuration):
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    MEDIA_URL = values.Value('/media/')
+
+    STATIC_URL = values.Value('/statics/')
+
+    MEDIA_ROOT = os.path.join(CONTENTS_DIR, 'media')
+
+    STATIC_ROOT = os.path.join(CONTENTS_DIR, 'statics')
+
+    STATICFILES_DIRS = (
+        os.path.join(ASSETS_DIR, 'static'),
+    )
+
+    LOCALE_PATHS = (
+        os.path.join(ASSETS_DIR, 'locale'),
+    )
+
+    FIXTURE_DIRS = (
+        os.path.join(ASSETS_DIR, 'fixtures'),
+    )
 
     AUTH_USER_MODEL = 'users.User'
 
@@ -121,7 +148,7 @@ class Development(Common):
     """
     DEBUG = True
 
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 
     INTERNAL_IPS = [
         '127.0.0.1'
