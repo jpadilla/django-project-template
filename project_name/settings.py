@@ -44,7 +44,7 @@ class Common(Configuration):
         'django_extensions',
         'debug_toolbar',
 
-        '{{ project_name }}.users',
+        '{{ project_name }}.membership.apps.MembershipConfig',
     ]
 
     MIDDLEWARE = [
@@ -139,7 +139,7 @@ class Common(Configuration):
         os.path.join(ASSETS_DIR, 'fixtures'),
     )
 
-    AUTH_USER_MODEL = 'users.User'
+    AUTH_USER_MODEL = 'membership.User'
 
 
 class Development(Common):
