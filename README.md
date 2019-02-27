@@ -21,7 +21,7 @@ $ django-admin.py startproject \
   --extension=py,md,env \
   project_name
 $ mv example.env .env
-$ pipenv install --dev
+$ LDFLAGS=-L/usr/local/lib CFLAGS=-I/usr/local/include pipenv install --dev
 ```
 
 ## Environment variables
