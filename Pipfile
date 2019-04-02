@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
-Werkzeug = "==0.15.1"
+Werkzeug = "==0.15.2"
 ipython = "*"
 factory-boy = "*"
 codecov = "*"
