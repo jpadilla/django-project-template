@@ -149,10 +149,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:a08afe8b057ba35963364711a1f36d346375da0c118f611f35c0252375338c7c",
-                "sha256:f03eeb431c77b88cf8747d47e94233a91d0e0fdae1cf09e0b21405a885700266"
+                "sha256:904bd981d6371bb95a200c0ec9dba5ba7cc980f2d6b125bd793fefe3293be388",
+                "sha256:a9645efd62b9fc1c7cad8ed93e162aad4c6bfd90e143966ddd4099b78cd244be"
             ],
-            "version": "==1.25"
+            "version": "==1.25.1"
         },
         "whitenoise": {
             "hashes": [
@@ -362,10 +362,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:a08afe8b057ba35963364711a1f36d346375da0c118f611f35c0252375338c7c",
-                "sha256:f03eeb431c77b88cf8747d47e94233a91d0e0fdae1cf09e0b21405a885700266"
+                "sha256:904bd981d6371bb95a200c0ec9dba5ba7cc980f2d6b125bd793fefe3293be388",
+                "sha256:a9645efd62b9fc1c7cad8ed93e162aad4c6bfd90e143966ddd4099b78cd244be"
             ],
-            "version": "==1.25"
+            "version": "==1.25.1"
         },
         "wcwidth": {
             "hashes": [
