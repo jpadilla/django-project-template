@@ -62,11 +62,11 @@
         },
         "djangorestframework": {
             "hashes": [
-                "sha256:8a435df9007c8b7d8e69a21ef06650e3c0cbe0d4b09e55dd1bd74c89a75a9fcd",
-                "sha256:f7a266260d656e1cf4ca54d7a7349609dc8af4fe2590edd0ecd7d7643ea94a17"
+                "sha256:1d22971a5fc98becdbbad9710ca2a9148dd339f6cbea4c3ddbed2cb84bab94e1",
+                "sha256:2884763160b997073ff1e937bd820a69d23978902a3ccd0ba53a217e196239f0"
             ],
             "index": "pypi",
-            "version": "==3.9.2"
+            "version": "==3.9.3"
         },
         "djangorestframework-camel-case": {
             "hashes": [
@@ -149,10 +149,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:904bd981d6371bb95a200c0ec9dba5ba7cc980f2d6b125bd793fefe3293be388",
-                "sha256:a9645efd62b9fc1c7cad8ed93e162aad4c6bfd90e143966ddd4099b78cd244be"
+                "sha256:a53063d8b9210a7bdec15e7b272776b9d42b2fd6816401a0d43006ad2f9902db",
+                "sha256:d363e3607d8de0c220d31950a8f38b18d5ba7c0830facd71a1c6b1036b7ce06c"
             ],
-            "version": "==1.25.1"
+            "version": "==1.25.2"
         },
         "whitenoise": {
             "hashes": [
@@ -362,10 +362,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:904bd981d6371bb95a200c0ec9dba5ba7cc980f2d6b125bd793fefe3293be388",
-                "sha256:a9645efd62b9fc1c7cad8ed93e162aad4c6bfd90e143966ddd4099b78cd244be"
+                "sha256:a53063d8b9210a7bdec15e7b272776b9d42b2fd6816401a0d43006ad2f9902db",
+                "sha256:d363e3607d8de0c220d31950a8f38b18d5ba7c0830facd71a1c6b1036b7ce06c"
             ],
-            "version": "==1.25.1"
+            "version": "==1.25.2"
         },
         "wcwidth": {
             "hashes": [
