@@ -9,11 +9,11 @@ ipython = "*"
 factory-boy = "*"
 codecov = "*"
 coverage = "*"
+django-debug-toolbar = "==1.11"
 
 [packages]
 bjoern = "*"
 dj-database-url = "==0.5.0"
-django-debug-toolbar = "==1.11"
 django-extensions = "==2.1.6"
 djangorestframework = "*"
 djangorestframework-camel-case = "*"
