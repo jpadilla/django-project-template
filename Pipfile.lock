@@ -16,10 +16,10 @@
     "default": {
         "bjoern": {
             "hashes": [
-                "sha256:a273b1e2dd4f9962668d416409d7936bf5535d58ba3b07bfa3520c9a71c57cd1"
+                "sha256:2e4461c7306c4f5def03223dce3b0f16ad26bc1718240e59a5e5472c2701027a"
             ],
             "index": "pypi",
-            "version": "==2.2.3"
+            "version": "==3.0.0"
         },
         "certifi": {
             "hashes": [
@@ -156,14 +156,6 @@
         }
     },
     "develop": {
-        "appnope": {
-            "hashes": [
-                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
-                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
-            ],
-            "markers": "sys_platform == 'darwin'",
-            "version": "==0.1.0"
-        },
         "backcall": {
             "hashes": [
                 "sha256:38ecd85be2c1e78f77fd91700c76e14667dc21e2713b63876c0eb901196e01e4",
