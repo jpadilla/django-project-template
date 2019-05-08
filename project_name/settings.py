@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # load basic configurations
 try:
     env = json.load(open(os.path.join(BASE_DIR, 'resources', 'env.json')))
-except json.JSONDecodeError:
+except (FileNotFoundError, json.JSONDecodeError):
     env = {
         'django_secret_key': os.environ['DJANGO_SECRET_KEY'],
         'django_debug': eval(os.environ.get('DJANGO_DEBUG', 'false').title()),
@@ -145,9 +145,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',
         'rest_framework.parsers.JSONParser',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'apps.authentication.BearerTokenAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
