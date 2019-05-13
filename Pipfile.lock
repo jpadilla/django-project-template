@@ -247,11 +247,11 @@
         },
         "factory-boy": {
             "hashes": [
-                "sha256:6f25cc4761ac109efd503f096e2ad99421b1159f01a29dbb917359dcd68e08ca",
-                "sha256:d552cb872b310ae78bd7429bf318e42e1e903b1a109e899a523293dfa762ea4f"
+                "sha256:728df59b372c9588b83153facf26d3d28947fc750e8e3c95cefa9bed0e6394ee",
+                "sha256:faf48d608a1735f0d0a3c9cbf536d64f9132b547dae7ba452c4d99a79e84a370"
             ],
             "index": "pypi",
-            "version": "==2.11.1"
+            "version": "==2.12.0"
         },
         "faker": {
             "hashes": [
@@ -331,7 +331,6 @@
                 "sha256:31cba6ffb739f099a85e243eff8cb717089fdd3c7300767d9fc34cb8e1b065f5",
                 "sha256:5ad302949b3c98dd73f8d9fcdc7e9cb592f120e32a18e23efd7f3dc51194472b"
             ],
-            "index": "pypi",
             "version": "==2.4.0"
         },
         "python-dateutil": {
