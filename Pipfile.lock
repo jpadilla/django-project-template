@@ -16,10 +16,10 @@
     "default": {
         "bjoern": {
             "hashes": [
-                "sha256:2e4461c7306c4f5def03223dce3b0f16ad26bc1718240e59a5e5472c2701027a"
+                "sha256:b6dae5ffb17f0120213ca2f4b6a5d56672d09d132e997a3482a83a93bfab55aa"
             ],
             "index": "pypi",
-            "version": "==3.0.0"
+            "version": "==3.0.1"
         },
         "certifi": {
             "hashes": [
@@ -328,11 +328,10 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:36586500a94cd97f8c2c19d251cdb78868d1a822e0e491bfc1d811766aedb772",
-                "sha256:b437bc0d04dc36f1f5b3592985b3e0a3d0af46b7c39199231706d19a4ee63344"
+                "sha256:71e430bc85c88a430f000ac1d9b331d2407f681d6f6aec95e8bcfbc3df5b0127",
+                "sha256:881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
             ],
-            "index": "pypi",
-            "version": "==2.4.1"
+            "version": "==2.4.2"
         },
         "python-dateutil": {
             "hashes": [
