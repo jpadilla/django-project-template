@@ -16,10 +16,10 @@
     "default": {
         "bjoern": {
             "hashes": [
-                "sha256:2e4461c7306c4f5def03223dce3b0f16ad26bc1718240e59a5e5472c2701027a"
+                "sha256:b6dae5ffb17f0120213ca2f4b6a5d56672d09d132e997a3482a83a93bfab55aa"
             ],
             "index": "pypi",
-            "version": "==3.0.0"
+            "version": "==3.0.1"
         },
         "certifi": {
             "hashes": [
