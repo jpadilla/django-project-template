@@ -14,7 +14,7 @@ django-debug-toolbar = "==1.11"
 [packages]
 bjoern = "*"
 dj-database-url = "==0.5.0"
-django-extensions = "==2.1.7"
+django-extensions = "==2.1.9"
 djangorestframework = "*"
 djangorestframework-camel-case = "*"
 Django = "==2.2.2"
