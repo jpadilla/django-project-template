@@ -269,11 +269,11 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:0806894ae78ddb94b530514acc9ab03a928b79374d8630470b439b58383dd7ee",
-                "sha256:263376e672c7f104fb971c9e1f372441bb34d66dfb7323062f62aa21fa46a377"
+                "sha256:11067ab11d98b1e6c7f0993506f7a5f8a91af420f7e82be6575fcb7a6ca372a0",
+                "sha256:60bc55c2c1d287161191cc2469e73c116d9b634cff25fe214a43cba7cec94c79"
             ],
             "index": "pypi",
-            "version": "==7.6.0"
+            "version": "==7.6.1"
         },
         "ipython-genutils": {
             "hashes": [
