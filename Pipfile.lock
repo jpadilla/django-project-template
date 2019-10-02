@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bbb4dd6cdc4d284ac3f52d89f4f13a76788efd3c4bce90ad713bec53e1cc9f6b"
+            "sha256": "0d6ff6551e15c147af0dc9f0d7e2e9de526c87793e74b22ca47729cad0018675"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -46,11 +46,11 @@
         },
         "django-extensions": {
             "hashes": [
-                "sha256:4aafdb865104eaa5d681b9976b36c52c9d441be89b7d782e40808f1c5c0c8f93",
-                "sha256:8a2552fdeb222b23895ef52cdc28fc56efba976f6da07ca92937f6f5e626e345"
+                "sha256:526d84b16ee180e45e2305f19d3e01ff3f9f513133839c0b4478b97310ade82a",
+                "sha256:a78105d5a5e1c3ef44fbe41bc5a19102bda64dbad05515bf791ac6d5d2499ebf"
             ],
             "index": "pypi",
-            "version": "==2.2.1"
+            "version": "==2.2.3"
         },
         "djangorestframework": {
             "hashes": [
@@ -141,10 +141,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f3eadfea5d92bc7899e75b5968410b749a054b492d5a6379c1344a1481bc2cb",
-                "sha256:9c6c593cb28f52075016307fc26b0a0f8e82bc7d1ff19aaaa959b91710a56c47"
+                "sha256:3de946ffbed6e6746608990594d08faac602528ac7015ac28d33cee6a45b7398",
+                "sha256:9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
             ],
-            "version": "==1.25.5"
+            "version": "==1.25.6"
         },
         "whitenoise": {
             "hashes": [
@@ -385,10 +385,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f3eadfea5d92bc7899e75b5968410b749a054b492d5a6379c1344a1481bc2cb",
-                "sha256:9c6c593cb28f52075016307fc26b0a0f8e82bc7d1ff19aaaa959b91710a56c47"
+                "sha256:3de946ffbed6e6746608990594d08faac602528ac7015ac28d33cee6a45b7398",
+                "sha256:9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
             ],
-            "version": "==1.25.5"
+            "version": "==1.25.6"
         },
         "wcwidth": {
             "hashes": [
