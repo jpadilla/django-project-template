@@ -62,11 +62,10 @@
         },
         "djangorestframework-camel-case": {
             "hashes": [
-                "sha256:3fb06663a8e1acf84e59ed1219ce7d33957801e2acd951c273e6389efd4b0c31",
-                "sha256:bcc831992b724ee634440eb3837d2a48f9af443e0d1280b3f9e018eb514ac9ed"
+                "sha256:9eba4a2f959e1e46b7d0f6136baf950552b2a4a695d4bb3cfb0c37be25294574"
             ],
             "index": "pypi",
-            "version": "==1.1.1"
+            "version": "==1.1.2"
         },
         "ipaddress": {
             "hashes": [
