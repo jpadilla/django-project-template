@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7db65b25483f8867e815621c625488efdf09e160129f4bea52c03c0c9c94dfa3"
+            "sha256": "60bc1938fbbdbb87e1a920a88eb79e550773206fa0c02d791e6a71d25f8cd2ab"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -73,14 +73,6 @@
             ],
             "index": "pypi",
             "version": "==1.1.2"
-        },
-        "ipaddress": {
-            "hashes": [
-                "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
-                "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
-            ],
-            "index": "pypi",
-            "version": "==1.0.23"
         },
         "psycopg2-binary": {
             "hashes": [
@@ -166,6 +158,14 @@
         }
     },
     "develop": {
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
+        },
         "asgiref": {
             "hashes": [
                 "sha256:7e06d934a7718bf3975acbf87780ba678957b87c7adc056f13b6215d610695a0",
