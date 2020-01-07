@@ -9,35 +9,24 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import json
 import os
 
 import dj_database_url
 import sentry_sdk
+from configurations import values
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# load basic configurations
-try:
-    env = json.load(open(os.path.join(BASE_DIR, 'resources', 'env.json')))
-except (FileNotFoundError, json.JSONDecodeError):
-    env = {
-        'django_secret_key': os.environ['DJANGO_SECRET_KEY'],
-        'django_debug': eval(os.environ.get('DJANGO_DEBUG', 'false').title()),
-        'database_url': os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
-        'sentry_dsn': os.environ.get('SENTRY_DSN'),  # optional
-    }
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env['django_secret_key']
+SECRET_KEY = values.SecretValue()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env['django_debug']
+DEBUG = values.BooleanValue(False)
 
 ALLOWED_HOSTS = [
     '*',
@@ -56,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'apps.core',
 ]
 
 MIDDLEWARE = [
@@ -151,7 +142,7 @@ REST_FRAMEWORK = {
 }
 
 # Sentry
-SENTRY_DSN = env.get('sentry_dsn')
+SENTRY_DSN = values.Value()
 if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
@@ -161,5 +152,5 @@ if SENTRY_DSN:
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(default=env['database_url']),
+    'default': dj_database_url.config(default=values.URLValue()),
 }

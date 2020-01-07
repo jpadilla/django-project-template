@@ -9,7 +9,6 @@ This is a simple Django 2.0+ project template with my preferred setup. Most Djan
 - Get value insight and debug information while on Development with [django-debug-toolbar](https://django-debug-toolbar.readthedocs.org).
 - Collection of custom extensions with [django-extensions](http://django-extensions.readthedocs.org).
 - HTTPS and other security related settings on Staging and Production.
-- Procfile for running gunicorn with New Relic's Python agent.
 - PostgreSQL database support with psycopg2.
 
 ## How to install
@@ -17,8 +16,8 @@ This is a simple Django 2.0+ project template with my preferred setup. Most Djan
 ```bash
 $ django-admin.py startproject \
   --template=https://github.com/key/django-project-template/archive/master.zip \
-  --name=Procfile \
-  --extension=py,md,env \
+  --name=env.example \
+  --extension=py,md \
   project_name
 $ mv example.env .env
 $ LDFLAGS=-L/usr/local/lib CFLAGS=-I/usr/local/include pipenv install --dev
