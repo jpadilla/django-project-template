@@ -13,144 +13,142 @@ import os
 
 import dj_database_url
 import sentry_sdk
-from configurations import values
+from configurations import values, Configuration
 from sentry_sdk.integrations.django import DjangoIntegration
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+class Common(Configuration):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = values.SecretValue()
+    SECRET_KEY = values.SecretValue()
+    DEBUG = values.BooleanValue(False)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = values.BooleanValue(False)
+    ALLOWED_HOSTS = [
+        '*',
+    ]
 
-ALLOWED_HOSTS = [
-    '*',
-]
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+    # Application definition
+    INSTALLED_APPS = [
+        'whitenoise.runserver_nostatic',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
 
-# Application definition
+        'apps.core',
+    ]
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ]
 
-    'apps.core',
-]
+    ROOT_URLCONF = '{{ project_name }}.urls'
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-ROOT_URLCONF = '{{ project_name }}.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
         },
-    },
-]
+    ]
 
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+    WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
-# Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+    # Password validation
+    # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/2.1/topics/i18n/
+    # Internationalization
+    # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+    TIME_ZONE = 'UTC'
 
-USE_I18N = True
+    USE_I18N = True
 
-USE_L10N = True
+    USE_L10N = True
 
-USE_TZ = True
+    USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
+    # Static files (CSS, JavaScript, Images)
+    # See http://whitenoise.evans.io/en/stable/
+    STATIC_URL = '/static/'
 
-STATIC_URL = '/static/'
+    # SESSION_COOKIE_SECURE = False
+    # SECURE_BROWSER_XSS_FILTER = False
+    # SECURE_CONTENT_TYPE_NOSNIFF = False
+    # SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    # SECURE_HSTS_SECONDS = 86400
+    # SECURE_REDIRECT_EXEMPT = []
+    # SECURE_SSL_HOST = None
+    # SECURE_SSL_REDIRECT = False
+    # SECURE_PROXY_SSL_HEADER = (
+    #     ('HTTP_X_FORWARDED_PROTO', 'https'),
+    # )
 
-# SESSION_COOKIE_SECURE = False
-# SECURE_BROWSER_XSS_FILTER = False
-# SECURE_CONTENT_TYPE_NOSNIFF = False
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-# SECURE_HSTS_SECONDS = 86400
-# SECURE_REDIRECT_EXEMPT = []
-# SECURE_SSL_HOST = None
-# SECURE_SSL_REDIRECT = False
-# SECURE_PROXY_SSL_HEADER = (
-#     ('HTTP_X_FORWARDED_PROTO', 'https'),
-# )
+    # rest framework
+    REST_FRAMEWORK = {
+        'DEFAULT_RENDERER_CLASSES': (
+            'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+            'rest_framework.renderers.JSONRenderer',
+        ),
+        'DEFAULT_PARSER_CLASSES': (
+            'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+            'rest_framework.parsers.JSONParser',
+        ),
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+        'PAGE_SIZE': 100,
+    }
 
-# rest framework
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-        'rest_framework.parsers.JSONParser',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'djangorestframework_camel_case.parser.CamelCaseJSONParser',
-        'rest_framework.parsers.JSONParser',
-    ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100,
-}
+    # Sentry
+    SENTRY_DSN = values.Value()
+    if SENTRY_DSN:
+        sentry_sdk.init(
+            dsn=SENTRY_DSN,
+            integrations=[DjangoIntegration()],
+        )
 
-# Sentry
-SENTRY_DSN = values.Value()
-if SENTRY_DSN:
-    sentry_sdk.init(
-        dsn=SENTRY_DSN,
-        integrations=[DjangoIntegration()],
-    )
+    # Database
+    # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+    DATABASES = {
+        'default': dj_database_url.config(default=values.URLValue()),
+    }
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-DATABASES = {
-    'default': dj_database_url.config(default=values.URLValue()),
-}
+
+class Dev(Common):
+    DEBUG = True
