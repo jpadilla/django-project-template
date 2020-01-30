@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
+from typing import Optional
 
 import sentry_sdk
 from configurations import values, Configuration
@@ -135,7 +136,7 @@ class Common(Configuration):
     }
 
     # Sentry
-    SENTRY_DSN = values.Value(environ_prefix=None)
+    SENTRY_DSN: Optional[str] = values.URLValue(environ_prefix=None, default=None)
     if SENTRY_DSN:
         sentry_sdk.init(
             dsn=SENTRY_DSN,
