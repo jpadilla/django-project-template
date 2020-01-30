@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
 
-import dj_database_url
 import sentry_sdk
 from configurations import values, Configuration
 from sentry_sdk.integrations.django import DjangoIntegration
@@ -136,7 +135,7 @@ class Common(Configuration):
     }
 
     # Sentry
-    SENTRY_DSN = values.Value()
+    SENTRY_DSN = values.Value(environ_prefix=None)
     if SENTRY_DSN:
         sentry_sdk.init(
             dsn=SENTRY_DSN,
@@ -144,10 +143,10 @@ class Common(Configuration):
         )
 
     # Database
-    # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-    DATABASES = {
-        'default': dj_database_url.config(default=values.URLValue()),
-    }
+    DATABASES = values.DatabaseURLValue()
+
+    # Cache
+    CACHES = values.CacheURLValue()
 
 
 class Dev(Common):
