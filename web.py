@@ -7,8 +7,8 @@ from ipaddress import ip_address
 
 from {{ project_name }}.wsgi import application
 
-DEFAULT_HOST = os.environ.get('BIND_ADDR', '127.0.0.1')
-DEFAULT_PORT = os.environ.get('BIND_PORT', 8002)
+DEFAULT_HOST = os.environ.get('HOST', '127.0.0.1')
+DEFAULT_PORT = os.environ.get('PORT', 8002)
 
 logger = logging.getLogger(__name__)
 if __name__ == '__main__':
