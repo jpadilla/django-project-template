@@ -28,6 +28,12 @@ repos:
             "--remove-unused-variable",
           ]
 
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+      - id: isort
+        args: ["--apply"]
+
   - repo: https://github.com/prettier/prettier
     rev: 1.16.4
     hooks:
