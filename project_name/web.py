@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 import logging
 import os
-
-import bjoern
 from ipaddress import ip_address
 
-from {{ project_name }}.wsgi import application
+import bjoern
+from {{project_name}}.wsgi import application
 
 DEFAULT_HOST = os.environ.get('HOST', '127.0.0.1')
-DEFAULT_PORT = os.environ.get('PORT', 8002)
+DEFAULT_PORT = os.environ.get('PORT', 8000)
 
 logger = logging.getLogger(__name__)
 if __name__ == '__main__':
