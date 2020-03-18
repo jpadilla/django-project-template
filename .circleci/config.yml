@@ -1,0 +1,112 @@
+version: 2.1
+defaults: &defaults
+  working_directory: ~/project
+  docker:
+    - image: circleci/python:3.8-node-browsers
+      environment:
+        TZ: /usr/share/zoneinfo/Asia/Tokyo
+        PIPENV_VENV_IN_PROJECT: true
+        DJANGO_SECRET_KEY: django_secret
+        ENVIRONMENT: Test
+    - image: circleci/postgres:10-postgis
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: django_test
+
+references:
+  restore_repo: &restore_repo
+    restore_cache:
+      keys:
+        - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+
+jobs:
+  dependencies:
+    <<: *defaults
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - .
+      - restore_cache:
+          keys:
+            - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          name: Install apt packages
+          command: |
+            sudo apt-get install --fix-missing -y libev-dev
+      - run:
+          name: Install dependencies
+          command: |
+            mkdir dist
+            pipenv install -d --keep-outdated
+            pipenv run django-admin startproject \
+              --template=. \
+              --name=env.example \
+              --extension=py,md \
+              django_project_template dist
+      - save_cache:
+          key: pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ~/.local/share/virtualenv/
+            - ~/project/dist/.venv
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  test:
+    <<: *defaults
+    environment:
+      DATABASE_URL: postgresql://postgres:password@127.0.0.1:5432/django_test
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - checkout
+      - restore_cache:
+          keys:
+            - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+            - pip-packages-v1-{{ .Branch }}-
+            - pip-packages-v1-
+      - run:
+          name: Waiting for Postgres to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z localhost 5432 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for Postgres && exit 1
+      - run:
+          name: Install apt packages
+          command: |
+            sudo apt-get install --fix-missing -y libev-dev direnv
+      - run:
+          name: Test
+          command: |
+            cd dist
+            mv env.example env
+            direnv allow .
+            pipenv install -d --keep-outdated
+            pipenv run coverage run --source="." --omit=".venv/*" manage.py test --configuration=Test -v 2
+            if [ ! -z "${CI}" -a ! -z "${CODECOV_TOKEN}" ]; then pipenv run codecov -t ${CODECOV_TOKEN} || exit 1; fi
+
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - dependencies:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
+      - test:
+          requires:
+            - dependencies
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
