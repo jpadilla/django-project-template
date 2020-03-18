@@ -1,0 +1,18 @@
+version: "3"
+services:
+  postgres:
+    container_name: postgres
+    image: mdillon/postgis
+    volumes:
+      - ./dump:/dump
+    ports:
+      - "127.0.0.1:15432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: "{{ project_name }}"
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "127.0.0.1:16379:6379"
