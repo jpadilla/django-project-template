@@ -19,7 +19,7 @@ bjoern = "==3.1.0"
 django = "==3.0.4"
 django-redis = "==4.11.0"
 django-configurations = {extras = ["database","cache"],version = "==2.2"}
-django-extensions = "==2.2.8"
+django-extensions = "==2.2.9"
 djangorestframework = "==3.11.0"
 djangorestframework-camel-case = "==1.1.2"
 hiredis = "==1.0.1"
