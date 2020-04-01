@@ -16,7 +16,7 @@ django-debug-toolbar = "==2.2"
 
 [packages]
 bjoern = "==3.1.0"
-django = "==3.0.4"
+django = "==3.0.5"
 django-redis = "==4.11.0"
 django-configurations = {extras = ["database","cache"],version = "==2.2"}
 django-extensions = "==2.2.9"
