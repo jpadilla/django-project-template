@@ -9,7 +9,7 @@ Werkzeug = "==1.0.1"
 [packages]
 dj-database-url = "==0.5.0"
 django-configurations = "==2.2"
-django-debug-toolbar = "==2.2"
+django-debug-toolbar = "==3.0"
 django-extensions = "==3.0.8"
 Django = "==2.2.*"
 psycopg2-binary = "==2.8.6"
