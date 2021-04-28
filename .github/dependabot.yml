@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - jpadilla
+  ignore:
+  - dependency-name: django-extensions
+    versions:
+    - 3.1.2
+  - dependency-name: django
+    versions:
+    - 3.1.7
