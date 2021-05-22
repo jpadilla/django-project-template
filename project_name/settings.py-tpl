@@ -7,7 +7,6 @@ https://docs.djangoproject.com/en/{{ docs_version }}/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
-import os
 from pathlib import Path
 
 from configurations import Configuration, values
@@ -75,7 +74,7 @@ class Common(Configuration):
     # Database
     # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
     DATABASES = values.DatabaseURLValue(
-        'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+        'sqlite:///{}'.format(BASE_DIR / 'db.sqlite3')
     )
 
     # Password validation
@@ -110,7 +109,7 @@ class Common(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     # Default primary key field type
